@@ -1,8 +1,21 @@
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 
-const privateKey = fs.readFileSync('/workspaces/Deliberately_Vulnerable_JWT/private.pem', 'utf8');
+const str_private = fs.readFileSync('/workspaces/Deliberately_Vulnerable_JWT/private.pem', 'utf8');
 const publicKey = fs.readFileSync('/workspaces/Deliberately_Vulnerable_JWT/public.pem', 'utf8');
+
+
+// Base64 encoding
+
+const buffer = Buffer.from(str_private);
+const enc_privateKey = buffer.toString('base64');
+console.log(enc_privateKey); 
+
+// Base64 decoding
+const dec_privateKey = Buffer.from(enc_privateKey, 'base64');
+const privateKey = dec_privateKey.toString();
+console.log(privateKey);
+
 
 const maxAge = 3 * 24 * 60 * 60;
 
