@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 
-private_key= fs.readFileSync('/private.pem', 'utf8');
-publicKey = fs.readFileSync('path/to/public.pem', 'utf8');
+const privateKey = fs.readFileSync('/workspaces/Deliberately_Vulnerable_JWT/private.pem', 'utf8');
+const publicKey = fs.readFileSync('/workspaces/Deliberately_Vulnerable_JWT/public.pem', 'utf8');
 
 const maxAge = 3 * 24 * 60 * 60;
 
